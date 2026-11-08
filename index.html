@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TgSound Clone</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background-color: var(--tg-theme-bg-color, #17212b);
+            color: var(--tg-theme-text-color, #ffffff);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: var(--tg-theme-secondary-bg-color, #232e3c);
+            color: var(--tg-theme-text-color, #ffffff);
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .track {
+            background-color: var(--tg-theme-secondary-bg-color, #232e3c);
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .track-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .track-title { font-weight: bold; font-size: 16px; }
+        .track-artist { font-size: 14px; color: #8b9bb4; margin-top: 5px; }
+        .play-btn {
+            background-color: #2481cc;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎵 Мой Музыкальный Плеер</h1>
+        <p style="color: #8b9bb4; font-size: 14px;">Здесь будут ваши треки</p>
+    </div>
+
+    <input type="text" class="search-box" placeholder="Поиск музыки (скоро заработает)..." id="searchInput">
+
+    <!-- Пример трека (заглушка) -->
+    <div class="track">
+        <div class="track-info">
+            <span class="track-title">Пример трека</span>
+            <span class="track-artist">Исполнитель</span>
+        </div>
+        <button class="play-btn">▶</button>
+    </div>
+
+    <script>
+        // Инициализация Telegram Web App
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Разворачиваем на весь экран
+        
+        // Применяем цвета Telegram
+        document.body.style.backgroundColor = tg.themeParams.bg_color || '#17212b';
+    </script>
+</body>
+</html>
